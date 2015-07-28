@@ -15,10 +15,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params) #not final implem
     if @product.save
-      flash[:success] = "Product added!"
-      flash.keep
+      flash.now[:success] = "Product added!"
       redirect_to @product
-    else render 'new'
+    else
+      flash.now[:danger] = "Product create failed"
+      render 'new'
     end
   end
 
@@ -29,16 +30,17 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
-      flash[:success] = "Product updated"
+      flash.now[:success] = "Product updated"
       redirect_to @product
     else
+      flash.now[:danger] = "Product update failed"
       render 'edit'
     end
   end
 
   def destroy
     Product.find(params[:id]).destroy
-    flash[:success] = "Product deleted"
+    flash.now[:success] = "Product deleted"
     redirect_to products_url
   end
 

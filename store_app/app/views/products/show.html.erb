@@ -2,7 +2,7 @@
 <div class="product_attribute">
   <p class="flash">
     <%= flash[:success] unless flash[:success].blank? %>
-    <%= flash[:error] unless flash[:error].blank? %>
+    <%= flash[:danger] unless flash[:danger].blank? %>
   </p>
   <ul>
     <li>Product:  <%= @product.title %></p></li>
