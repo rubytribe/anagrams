@@ -1,11 +1,11 @@
 <% provide(:title,"Add a new product") %>
 
  <div class="new_product">
-   <% if @product.errors.any? %> </br>
+<span style="color: red">   <% if @product.errors.any? %> </br>
     <% @product.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
-  <% end %>
+  <% end %> </span>
 
   <%= form_for(@product) do |prod| %></br>
     <%= prod.label :name %></br>
