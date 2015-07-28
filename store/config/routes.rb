@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   resources :products
   resources :users
 
-  root                'pages#home'
-  get    'about'   => 'pages#about'
-  get    'contact' => 'pages#contact'
-  get    'products'   => 'products#index'
+  root                         'pages#home'
+  get    'about'            => 'pages#about'
+  get    'contact'          => 'pages#contact'
+  get    'products'         => 'products#index'
   get    'products/show'    => 'products#show'
   get    'products/new'     => 'products#new'
-
+  
   get    'signup'  => 'users#new'
   #get    'login'   => 'sessions#new'
   #post   'login'   => 'sessions#create'

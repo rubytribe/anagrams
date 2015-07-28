@@ -14,13 +14,24 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_url
+      redirect_to @product
     else
       render 'new'
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(product_params)
+      flash[:succes] = "Product updated"
+      redirect_to @product
+    else
+      render 'edit'
+    end
   end
 
   def destroy

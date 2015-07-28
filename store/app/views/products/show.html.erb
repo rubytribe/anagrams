@@ -6,5 +6,7 @@
 <span style="position: relative; top: 200px" class="price"><%= number_to_currency(@product.price) %> </span>
 <ul class="product_control">
   <li><%= link_to "Back", products_path %></li>
-  <li><%= link_to "Edit", '#' %></li>
+  <li style="margin-left: 200px"><%= link_to "Edit", edit_product_path(@product) %></li>
+  <li><%= link_to "Delete", @product, method: :delete,
+                     data: {confirm: 'Are you sure?' } %>
 </ul>

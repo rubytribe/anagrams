@@ -1,0 +1,24 @@
+<% provide(:title,"Edit product") %>
+<div>
+
+  <span style="color: red">   <% if @product.errors.any? %> </br>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %> </span>
+
+
+  <%= form_for(@product) do |prod| %>
+    <%= prod.label :name %></br>
+    <%= prod.text_field :name, class: :text_field_style%></br>
+  <p>  <%= prod.label :description %> </p>
+  <p>  <%= prod.text_area :description, size: "30x30", class: :text_field_style %> </p>
+    <%= prod.label :image_url %></br>
+    <%= prod.text_field :image_url, class: :text_field_style %></br>
+    <%= prod.label :price %></br>
+    <%= prod.number_field :price, class: :text_field_style %></br>
+  <div style="position: relative; top: 5px; padding-top: 3px">
+    <%= prod.submit "Update product", class: :btn%>
+  <% end %>
+  <ul><li style="display: inline; position:relative;left: -40px; bottom: -70px"><%= link_to "Back", @product %></li></ul>
+</div>
