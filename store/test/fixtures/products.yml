@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
+tablexxl:
+  name: table for 2
+  description: This table is for two
   price: 9.99
-  image_url: MyString
+  image_url: valid_image_url.jpg
 
-two:
+one:
   name: MyString
   description: MyText
   price: 9.99

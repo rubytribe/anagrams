@@ -3,7 +3,7 @@
 <div class="show_description">
   <%= @product.description %>
 </div></br>
-<span style="position: relative; top: 200px" class="price"><%= number_to_currency(@product.price) %> </span>
+<span style="float: left; position: relative; right: -50px; bottom: -10px" class="price"><%= number_to_currency(@product.price) %> </span>
 <ul class="product_control">
   <li><%= link_to "Back", products_path %></li>
   <li style="margin-left: 200px"><%= link_to "Edit", edit_product_path(@product) %></li>
