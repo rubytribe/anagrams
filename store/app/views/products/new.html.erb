@@ -1,6 +1,7 @@
 <% provide(:title,"Add a new product") %>
 
  <div class="new_product">
+   <div class="flash_danger"><%= flash[:danger] %></div>
 <span style="color: red">   <% if @product.errors.any? %> </br>
     <% @product.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

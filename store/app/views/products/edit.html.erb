@@ -1,12 +1,11 @@
 <% provide(:title,"Edit product") %>
 <div style="text-align: center">
-
+      <div class="flash_danger"><%= flash[:danger] %></div>
   <span style="color: red">   <% if @product.errors.any? %> </br>
       <% @product.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     <% end %> </span>
-
 
   <%= form_for(@product) do |prod| %>
     <%= prod.label :name %></br>
@@ -20,5 +19,5 @@
   <div style="position: relative; top: 5px; padding-top: 3px">
     <%= prod.submit "Update product", class: :btn%>
   <% end %>
-  <ul><li style="display: inline; position:relative;left: -40px; bottom: -70px"><%= link_to "Back", @product %></li></ul>
+  <ul><li style="display: inline; position:relative;left: -620px; bottom: 10px"><%= link_to "Back", @product %></li></ul>
 </div>

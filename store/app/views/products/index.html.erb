@@ -1,5 +1,6 @@
 <div>
 <% provide(:title,"Product list") %>
+
 <% @products.each do |product| %>
   <div class="show">
     <%= image_tag(product.image_url, alt: product.name) %>
@@ -13,5 +14,5 @@
     </ul>
   </div>
 <% end %>
-<span class="new_product_link"><%= link_to "Add a new product" , products_new_path %></span>
+<span class="new_product_link"><%= link_to "+Add a new product" , products_new_path %></span>
 </div>
