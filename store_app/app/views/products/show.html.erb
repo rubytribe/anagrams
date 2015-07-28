@@ -1,0 +1,13 @@
+<% provide(:title, @product.title) %>
+<div class="product_attribute">
+  <p class="flash">
+    <%= flash[:success] unless flash[:success].blank? %>
+    <%= flash[:error] unless flash[:error].blank? %>
+  </p>
+  <ul>
+    <li>Product:  <%= @product.title %></p></li>
+    <li>Description:  <%=  @product.description %></li>
+    <li><%= image_tag(@product.image_url) %></li>
+    <li>Price:  <%= number_to_currency(@product.price) %></li>
+  </ul>
+</div>

@@ -1,5 +1,5 @@
-<% provide(:title, 'Create product') %>
-<h1>Create product</h1>
+<% provide(:title, 'Update product') %>
+<h1>Update product</h1>
 <div class="form">
   <%= form_for(@product) do |f| %>
   <%= render 'shared/error_messages' %>
@@ -20,7 +20,7 @@
       <%= f.text_field :price %>
     </div>
     <div class="actions">
-      <%= f.submit "Create product", class: "styled-button-8" %>
+      <%= f.submit "Update product", class: "styled-button-8" %>
     </div>
   <% end %>
 </div>
