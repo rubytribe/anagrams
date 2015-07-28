@@ -1,0 +1,10 @@
+<% provide(:title, @product.name) %>
+<div style="float: left" class="max_img_size"><%= image_tag(@product.image_url, alt: @product.name) %></div>
+<div class="show_description">
+  <%= @product.description %>
+</div></br>
+<span style="position: relative; top: 200px" class="price"><%= number_to_currency(@product.price) %> </span>
+<ul class="product_control">
+  <li><%= link_to "Back", products_path %></li>
+  <li><%= link_to "Edit", '#' %></li>
+</ul>

@@ -1,0 +1,23 @@
+<% provide(:title,"Add a new product") %>
+
+ <div class="new_product">
+   <% if @product.errors.any? %> </br>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+
+  <%= form_for(@product) do |prod| %></br>
+    <%= prod.label :name %></br>
+    <%= prod.text_field :name, class: :text_field_style%></br>
+    <%= prod.label :description %></br>
+    <%= prod.text_area :description, rows: 30, cols: 20, class: :text_field_style %></br>
+    <%= prod.label :image_url %></br>
+    <%= prod.text_field :image_url, class: :text_field_style %></br>
+    <%= prod.label :price %></br>
+    <%= prod.number_field :price, class: :text_field_style %></br>
+  <div style="position: relative; top: 5px; padding-top: 3px">
+    <%= prod.submit "Create new product", class: :btn%>
+  </div>
+  <% end %>
+</div>
