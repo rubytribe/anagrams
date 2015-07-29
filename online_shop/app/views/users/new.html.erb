@@ -1,0 +1,15 @@
+<div class="divsignup">
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.label :name, class: "textcss" %><br>
+  <%= f.text_field :name, class: "dap_text_box form-control" %><br>
+  <%= f.label :email, class: "textcss" %><br>
+  <%= f.text_field :email, class: "dap_text_box  form-control" %><br>
+  <%= f.label :password, class: "textcss" %><br>
+  <%= f.password_field :password, class: "dap_text_box  form-control" %><br>
+  <%= f.label :password_confirmation, class: "textcss"%><br>
+  <%= f.password_field :password_confirmation, class: "dap_text_box  form-control" %><br>
+  <%= f.submit "Create my account",class: "btnsignup" %><br><br>
+  <a href='/login'<button type="button" class="btnlogin2">Login</button></a>
+<% end %>
+</div>
