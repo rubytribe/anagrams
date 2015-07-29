@@ -1,18 +1,25 @@
 <% provide(:title, "Create new user") %>
-<div>
+<div class="user_signup">
+
+  <span style="color: red">   <% if @user.errors.any? %> </br>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %> </span>
+
   <%= form_for(@user) do |u| %></br>
-    <%= u.label :name %></br>
-    <%= u.text_field :name, class: :text_field_style%></br>
+    <%= u.label :name, class: :label_style %></br>
+    <%= u.text_field :name, class: :text_field_style2%></br>
 
-    <%= u.label :email %></br>
-    <%= u.email_field :email, class: :text_field_style %></br>
+    <%= u.label :email, class: :label_style %></br>
+    <%= u.email_field :email, class: :text_field_style2 %></br>
 
-    <%= u.label :password %></br>
-    <%= u.password_field :password, class: :text_field_style %></br>
+    <%= u.label :password, class: :label_style %></br>
+    <%= u.password_field :password, class: :text_field_style2 %></br>
 
-    <%= u.label :confirm_password %></br>
-    <%= u.password_field :confirm_password, class: :text_field_style %></br>
+    <%= u.label :confirm_password, class: :label_style %></br>
+    <%= u.password_field :confirm_password, class: :text_field_style2 %></br>
 
-    <%= u.submit "Create account", class: :text_field_style %>
+    <%= u.submit "Create account", class: 'button button_grey' %>
   <% end %>
 </div>

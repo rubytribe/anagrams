@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
-      flash[:succes] = "Product updated"
+      flash[:success] = "Product updated"
       redirect_to @product
     else
       flash.now[:danger] = "Product edit failed"

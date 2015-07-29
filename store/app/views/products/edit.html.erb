@@ -1,23 +1,25 @@
 <% provide(:title,"Edit product") %>
-<div style="text-align: center">
-      <div class="flash_danger"><%= flash[:danger] %></div>
-  <span style="color: red">   <% if @product.errors.any? %> </br>
-      <% @product.errors.full_messages.each do |msg| %>
+<div class="new_product">
+  <span style="color: red">
+    <% if @product.errors.any? %> </br>
+    <%   @product.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
-      <% end %>
-    <% end %> </span>
+    <%   end %>
+    <% end %>
+  </span>
 
-  <%= form_for(@product) do |prod| %>
-    <%= prod.label :name %></br>
-    <%= prod.text_field :name, class: :text_field_style%></br>
-  <p>  <%= prod.label :description %> </p>
-  <p>  <%= prod.text_area :description, size: "50x10"%> </p>
-    <%= prod.label :image_url %></br>
-    <%= prod.text_field :image_url, class: :text_field_style %></br>
-    <%= prod.label :price %></br>
-    <%= prod.number_field :price, step: 0.01, class: :text_field_style %></br>
-  <div style="position: relative; top: 5px; padding-top: 3px">
-    <%= prod.submit "Update product", class: :btn%>
+  <%= form_for(@product) do |prod| %></br>
+       <%= prod.label :name, class: :label_style %></br>
+       <%= prod.text_field :name, class: :text_field_style2 %></br>
+  <p>  <%= prod.label :description, class: :label_style %> </p>
+  <p>  <%= prod.text_area :description, size: "50x7"%> </p>
+       <%= prod.label :image_url, class: :label_style %></br>
+       <%= prod.text_field :image_url, class: :text_field_style2 %></br>
+       <%= prod.label :price, class: :label_style %></br>
+       <%= prod.number_field :price, step: 0.01, class: :text_field_style2 %></br>
+       <div style="position: relative; top: 5px; padding-top: 3px">
+         <%= prod.submit "Update product", class: 'button button_grey' %>
+       </div>
   <% end %>
-  <ul><li style="display: inline; position:relative;left: -620px; bottom: 10px"><%= link_to "Back", @product %></li></ul>
+  <div class="myButton button_position"><%= link_to "Back", @product %></div>
 </div>
