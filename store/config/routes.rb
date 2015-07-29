@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   get    'products'         => 'products#index'
   get    'products/show'    => 'products#show'
   get    'products/new'     => 'products#new'
-  
-  get    'signup'  => 'users#new'
-  #get    'login'   => 'sessions#new'
+
+  get    'signup'           => 'users#new'
+  get    'users/show'       => 'users#show'
+  get    'users/index'      => 'users#index'
+
+  get    'login'   => 'sessions#new'
   #post   'login'   => 'sessions#create'
   #delete 'logout'  => 'sessions#destroy'
 

@@ -1,7 +1,7 @@
 <% provide(:title,"Add a new product") %>
 
  <div class="new_product">
-   <div class="flash_danger"><%= flash[:danger] %></div>
+   <div class="flash_danger"><%= flash[:danger]  %></div>
 <span style="color: red">   <% if @product.errors.any? %> </br>
     <% @product.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -12,11 +12,11 @@
     <%= prod.label :name %></br>
     <%= prod.text_field :name, class: :text_field_style%></br>
     <%= prod.label :description %></br>
-    <%= prod.text_area :description, rows: 30, cols: 20, class: :text_field_style %></br>
+    <%= prod.text_area :description, size: "50x10" %></br>
     <%= prod.label :image_url %></br>
     <%= prod.text_field :image_url, class: :text_field_style %></br>
     <%= prod.label :price %></br>
-    <%= prod.number_field :price, class: :text_field_style %></br>
+    <%= prod.number_field :price, step: 0.01, class: :text_field_style %></br>
   <div style="position: relative; top: 5px; padding-top: 3px">
     <%= prod.submit "Create new product", class: :btn%>
   </div>

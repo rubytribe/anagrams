@@ -43,7 +43,8 @@ class HandleProductsTest < ActionDispatch::IntegrationTest
     assert_equal description, @product.description
     assert_equal image_url, @product.image_url
     assert_equal price, @product.price
-
+    assert_redirected_to @product
+    assert_not flash.empty?
   end
 
   test "unsuccesful edit product" do

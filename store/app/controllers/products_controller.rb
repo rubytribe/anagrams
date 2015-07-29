@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    if Product.exists?(id: params[:id])
+      @product = Product.find(params[:id])
+    else
+      flash[:notice] = "The product with the ID #{params[:id]} doesn't exist"
+      redirect_to products_url
+    end
   end
 
   def index
@@ -17,13 +22,18 @@ class ProductsController < ApplicationController
       flash[:success] = "Product successfully created"
       redirect_to @product
     else
-      flash[:danger] = "Product creation failed"
+      flash.now[:danger] = "Product creation failed"
       render 'new'
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
+    if Product.exists?(id: params[:id])
+      @product = Product.find(params[:id])
+    else
+      flash[:notice] = "The product with the ID #{params[:id]} doesn't exist"
+      redirect_to products_url
+    end
   end
 
   def update
@@ -32,14 +42,14 @@ class ProductsController < ApplicationController
       flash[:succes] = "Product updated"
       redirect_to @product
     else
-      flash[:danger] = "Product edit failed"
+      flash.now[:danger] = "Product edit failed"
       render 'edit'
     end
   end
 
   def destroy
     Product.find(params[:id]).destroy
-    flash[:success]
+    flash[:success] = "Product successfully deleted"
     redirect_to products_url
   end
 

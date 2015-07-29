@@ -11,11 +11,11 @@
     <%= prod.label :name %></br>
     <%= prod.text_field :name, class: :text_field_style%></br>
   <p>  <%= prod.label :description %> </p>
-  <p>  <%= prod.text_area :description, size: "30x30", class: :text_field_style %> </p>
+  <p>  <%= prod.text_area :description, size: "50x10"%> </p>
     <%= prod.label :image_url %></br>
     <%= prod.text_field :image_url, class: :text_field_style %></br>
     <%= prod.label :price %></br>
-    <%= prod.number_field :price, class: :text_field_style %></br>
+    <%= prod.number_field :price, step: 0.01, class: :text_field_style %></br>
   <div style="position: relative; top: 5px; padding-top: 3px">
     <%= prod.submit "Update product", class: :btn%>
   <% end %>

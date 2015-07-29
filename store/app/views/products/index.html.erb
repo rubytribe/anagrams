@@ -1,6 +1,6 @@
 <div>
 <% provide(:title,"Product list") %>
-
+<div class="flash_notice"><%= flash[:notice] %></div>
 <% @products.each do |product| %>
   <div class="show">
     <%= image_tag(product.image_url, alt: product.name) %>

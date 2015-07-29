@@ -1,0 +1,18 @@
+<% provide(:title, "Create new user") %>
+<div>
+  <%= form_for(@user) do |u| %></br>
+    <%= u.label :name %></br>
+    <%= u.text_field :name, class: :text_field_style%></br>
+
+    <%= u.label :email %></br>
+    <%= u.email_field :email, class: :text_field_style %></br>
+
+    <%= u.label :password %></br>
+    <%= u.password_field :password, class: :text_field_style %></br>
+
+    <%= u.label :confirm_password %></br>
+    <%= u.password_field :confirm_password, class: :text_field_style %></br>
+
+    <%= u.submit "Create account", class: :text_field_style %>
+  <% end %>
+</div>
