@@ -1,11 +1,7 @@
 <% provide(:title,"Edit product") %>
-<div class="new_product">
+<div class="align_center">
   <span style="color: red">
-    <% if @product.errors.any? %> </br>
-    <%   @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <%   end %>
-    <% end %>
+  <%= render 'shared/error_messages' %>
   </span>
 
   <%= form_for(@product, html: { multipart: true }) do |prod| %></br>

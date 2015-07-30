@@ -8,7 +8,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       post users_path, user: { name: "   ",
                                email:"invalid@email",
                                password: "aaa",
-                               confirm_password:"bbb"  }
+                               password_confirmation: "bbb"  }
     end
     assert_template 'users/new'
   end
@@ -19,9 +19,10 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       post_via_redirect users_path, user: { name: "raoul",
                                email:"raoul@raul.com",
                                password: "password",
-                               confirm_password:"password"  }
+                               password_confirmation: "password"  }
     end
     assert_template 'users/show'
+    assert is_logged_in?
   end
-  
+
 end

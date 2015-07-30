@@ -1,11 +1,8 @@
 <% provide(:title,"Add a new product") %>
 
- <div class="new_product">
-  <span style="color: red">   <% if @product.errors.any? %> </br>
-    <% @product.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  <% end %>
+ <div class="align_center">
+  <span style="color: red">
+    <%= render 'shared/error_messages' %>
   </span>
 
   <%= form_for(@product, html: { multipart: true }) do |prod| %></br>
@@ -14,7 +11,7 @@
     <%= prod.label :description, class: :label_style %></br>
     <%= prod.text_area :description, size: "50x10" %></br>
     <%= prod.label :image_url,"Upload image", class: :label_style %></br>
-    <%= prod.file_field :image_url, class: :text_field_style2 %></br>
+    <%= prod.file_field :image_url, class: :myButton %></br>
     <%= prod.label :price, class: :label_style %></br>
     <%= prod.number_field :price, step: 0.01, class: :text_field_style2 %></br>
   <div style="position: relative; top: 5px; padding-top: 3px">

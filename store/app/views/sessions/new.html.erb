@@ -1,4 +1,23 @@
 <% provide(:title, "Log In") %>
+<div class="align_center">
 
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+  <%= form_for(:session, url: login_path) do |f| %></br>
+
+    <%= f.label :email , class: :label_style%></br>
+    <%= f.email_field :email, class: :text_field_style2  %></br>
+
+    <%= f.label :password , class: :label_style %></br>
+    <%= f.password_field :password, class: :text_field_style2  %></br>
+
+    <%= f.label :remember_me, class: :label_style do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me on this computer</span>
+    <% end %> </br></br>
+
+    <%= f.submit "Log in", class: 'button button_grey'  %>
+  <% end %></br>
+
+  <p style="font-weight: bold; font-size:25px">New user?
+    <span class="myButton"><%= link_to "Sign up now!", signup_path %></span>
+  </p>
+</div>

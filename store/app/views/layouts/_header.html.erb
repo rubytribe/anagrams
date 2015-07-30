@@ -1,0 +1,17 @@
+<header>
+  <h1><%= yield(:title) %></h1>
+  <ul>
+    <% if logged_in? %>
+      <li class="myButton"> <%= link_to "Profile", current_user %></li>
+      <li class="myButton"> <%= link_to "Sign out", logout_path, method: "delete" %></li>
+      <li class="myButton" style="margin-left:15px"> <%= link_to "Users", '#' %></li>
+    <% else %>
+      <li class="myButton">  <%= link_to "Sign Up", signup_path %> </li>
+      <li class="myButton" style="margin-left:15px">  <%= link_to "Log In",login_path %>  </li>
+    <% end %>
+
+    <li class="myButton">  <%= link_to "About" , about_path %></li>
+    <li class="myButton">  <%= link_to "Contact" , contact_path %></li>
+    <li class="myButton">  <%= link_to "Home" , root_path %></li>
+  </ul>
+</header>
