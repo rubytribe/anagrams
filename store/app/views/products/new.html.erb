@@ -8,13 +8,13 @@
   <% end %>
   </span>
 
-  <%= form_for(@product) do |prod| %></br>
+  <%= form_for(@product, html: { multipart: true }) do |prod| %></br>
     <%= prod.label :name, class: :label_style %></br>
     <%= prod.text_field :name, class: :text_field_style2 %></br>
     <%= prod.label :description, class: :label_style %></br>
     <%= prod.text_area :description, size: "50x10" %></br>
-    <%= prod.label :image_url, class: :label_style %></br>
-    <%= prod.text_field :image_url, class: :text_field_style2 %></br>
+    <%= prod.label :image_url,"Upload image", class: :label_style %></br>
+    <%= prod.file_field :image_url, class: :text_field_style2 %></br>
     <%= prod.label :price, class: :label_style %></br>
     <%= prod.number_field :price, step: 0.01, class: :text_field_style2 %></br>
   <div style="position: relative; top: 5px; padding-top: 3px">

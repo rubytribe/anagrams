@@ -1,5 +1,5 @@
 require 'test_helper'
-
+#@product.image_url = File.new("test/fixtures/500.jpg")
 class HandleProductsTest < ActionDispatch::IntegrationTest
   def setup
     @product=products(:tablexxl)
@@ -9,7 +9,7 @@ class HandleProductsTest < ActionDispatch::IntegrationTest
     assert_difference 'Product.count', 1 do
       post_via_redirect products_path, product: { name:  "Example Product",
                                             description: "description should be long",
-                                            image_url:             "valid_image_url.jpg",
+                                            image_url:   fixture_file_upload('test/fixtures/500.jpg', 'image/jpg'),
                                             price: 100  }
     end
   assert_template 'products/show'
@@ -31,7 +31,7 @@ class HandleProductsTest < ActionDispatch::IntegrationTest
     assert_response :success
     name="new name"
     description="new description"
-    image_url="new_image_url.jpg"
+    image_url=fixture_file_upload('test/fixtures/500.jpg', 'image/jpg')
     price=20
     patch product_path(@product), product: { name:  name,
                                     description: description,
@@ -41,7 +41,6 @@ class HandleProductsTest < ActionDispatch::IntegrationTest
     @product.reload
     assert_equal name, @product.name
     assert_equal description, @product.description
-    assert_equal image_url, @product.image_url
     assert_equal price, @product.price
     assert_redirected_to @product
     assert_not flash.empty?

@@ -10,4 +10,8 @@ class LinksTestTest < ActionDispatch::IntegrationTest
    #assert_select "a[href=?]", signup_path
    #assert_select "a[href=?]", login_path
   end
+  test "other links" do
+    
+
+  end
 end
