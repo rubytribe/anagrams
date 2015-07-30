@@ -1,13 +1,9 @@
 <% provide(:title, @product.title) %>
-<p class="flash">
-  <%= flash[:success] unless flash[:success].blank? %>
-  <%= flash[:danger] unless flash[:danger].blank? %>
-</p>
 <div class="product_attribute">
   <ul>
     <li>Product:  <%= @product.title %></p></li>
     <li>Description:  <%=  @product.description %></li>
-    <li><%= image_tag(@product.image_url) %></li>
+    <li><%= image_tag @product.image_url if @product.image_url? %></li>
     <li>Price:  <%= number_to_currency(@product.price) %></li>
   </ul>
   <%= link_to 'Edit', edit_product_path(@product), :class => 'action_button' %>

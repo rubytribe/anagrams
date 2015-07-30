@@ -1,0 +1,7 @@
+<div class="user-profile">
+  <ul>
+    <li>Name:  <%= @user.name %></p></li>
+    <li>Email:  <%=  @user.email %></li>
+    <li><%= image_tag @user.picture.url if @user.picture?  %></li>
+  </ul>
+</div>

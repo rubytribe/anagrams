@@ -10,6 +10,7 @@ class ProductsCreateTest < ActionDispatch::IntegrationTest
                                      image_url: "invalid.jpg",
                                      price: 10 }
     end
+    assert_not flash.empty?
     assert_template 'products/new'
   end
 
@@ -21,6 +22,7 @@ class ProductsCreateTest < ActionDispatch::IntegrationTest
                                                   image_url: "book.jpg",
                                                   price: 30 }
     end
+    assert_not flash.empty?
     assert_template 'products/show'
   end
 end

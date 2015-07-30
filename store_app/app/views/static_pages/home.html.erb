@@ -5,6 +5,7 @@
   <%= flash[:danger] unless flash[:danger].blank? %>
 </p>
   <div class="button-wrapper">
+    <%= button_to "Sign up", signup_path, :class => "styled-button-8", :method => :get  %><br />
     <%= button_to "Create product", new_product_path, :class => "styled-button-8", :method => :get  %><br />
     <%= button_to "All products", products_path, :class => "styled-button-8", :method => :get  %><br />
   </div>

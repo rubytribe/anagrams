@@ -1,9 +1,5 @@
 <% provide(:title, 'Update product') %>
 <h1>Update product</h1>
-<p class="flash">
-  <%= flash[:success] unless flash[:success].blank? %>
-  <%= flash[:danger] unless flash[:danger].blank? %>
-</p>
 <div class="form">
   <%= form_for(@product) do |f| %>
   <%= render 'shared/error_messages' %>

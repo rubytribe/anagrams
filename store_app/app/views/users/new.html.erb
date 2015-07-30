@@ -1,0 +1,45 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+<p class="flash">
+  <%= flash[:success] unless flash[:success].blank? %>
+  <%= flash[:danger] unless flash[:danger].blank? %>
+</p>
+<div class="form">
+  <%= form_for(@user, html: {multipart: true }) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@user.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.text_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
+    <span class="picture">
+      <%= f.label :picture %><br>
+      <%= f.file_field :picture %>
+    </span>
+    <div class="actions">
+      <%= f.submit "Create Account", class: "styled-button-8" %>
+    </div>
+  <% end %>
+</div>

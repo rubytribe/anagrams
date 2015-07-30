@@ -10,7 +10,12 @@
   width: 100%;
 }
 
-body {
+html{
+  position:relative;
+  min-height: 100%;
+}
+
+html, body {
   margin: 0px;
   padding: 0px;
 }
@@ -18,23 +23,6 @@ body {
 .top {
   background-color: black;
   height: 100px;
-}
-
-.navigation {
-  margin: 10px;
-  padding: 10px;
-}
-
-.navigation .right-nav {
-  float: right;
-  padding: 5px;
-  a {
-    &:hover {
-      color: #fff;
-    }
-    text-decoration: none;
-    color: grey;
-  }
 }
 
 #home {
@@ -52,7 +40,18 @@ body {
   }
 }
 
+.pageContentWrapper{
+  margin-bottom:100px;/* Height of footer*/
+}
+
 footer {
+  position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height:60px;
+
+
   margin-top: 45px;
   padding-top: 5px;
   border-top: 2px solid #eaeaea;
@@ -149,6 +148,10 @@ form
     margin-left: auto;
     margin-right: auto;
     text-align: left;
+    .text {
+      margin-left: 0;
+    }
+
 }
 
 /* errors */
@@ -198,7 +201,8 @@ td {
 }
 
 .styled-button-9 {
-	margin-left: 65px;
+	text-decoration: none;
+  margin-left: 65px;
   background: #25A6E1;
 	background: -moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
@@ -241,7 +245,7 @@ td {
 
 /* Flash */
 
-.flash {
+.alert {
   text-align: left;
   padding: 10px;
   font-family: times, Times New Roman, times-roman, georgia, serif;
@@ -249,4 +253,64 @@ td {
   line-height: 40px;
   letter-spacing: -1px;color: #444;
   color: $gray-light;
+}
+
+/* User Profile */
+
+.user-profile {
+  height: 450px;
+  text-align:center;
+  ul {
+    list-style: none;
+
+    img {
+      width:200px;
+    }
+
+    li {
+      padding: 10px;
+      font-family: times, Times New Roman, times-roman, georgia, serif;
+      font-size: 28px;
+      line-height: 40px;
+      letter-spacing: -1px;color: #444;
+      }
+  }
+}
+
+/* dropdown menu */
+
+.navigation {
+  margin: 0px;
+  padding: 10px;
+}
+
+.navigation li {
+  display: block;
+  position: relative;
+  float: right;
+
+  .dropdown-menu {
+    display: none;
+  }
+}
+
+.navigation li a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 5px 15px 5px 15px;
+  margin-left: 1px;
+  &:hover {
+    color: grey;
+  }
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  color: grey;
+}
+
+.dropdown:hover a {
+  color: grey;
 }

@@ -13,6 +13,7 @@ class ProductsEditTest < ActionDispatch::IntegrationTest
                                              description: "invalid",
                                              image_url: "invalid.jpg",
                                              price: 9.99 }
+    assert_not flash.empty?
     assert_template 'products/edit'
   end
 
@@ -25,15 +26,11 @@ class ProductsEditTest < ActionDispatch::IntegrationTest
                                              description: description,
                                              image_url: "image.jpg",
                                              price: 9.99 }
+    assert_not flash.empty?
     assert_redirected_to @product
     @product.reload
     assert_equal title, @product.title
     assert_equal description, @product.description
   end
 
-  test "should destroy" do
-    assert_difference 'Product.count', -1 do
-      delete product_path(@product)
-    end
-  end
 end
