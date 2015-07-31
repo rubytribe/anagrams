@@ -10,6 +10,8 @@ gem 'will_paginate'
 
 gem 'carrierwave'
 
+gem 'bootstrap-sass'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

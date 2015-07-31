@@ -32,8 +32,16 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", signup_path
     assert_not flash.empty?
+  end
 
+  test "login with remembering" do
+    log_in_as(@user, remember_me: '1')
+    assert_not_nil cookies['remember_token']
+  end
 
+  test "login without remembering" do
+    log_in_as(@user, remember_me: '0')
+    assert_nil cookies['remember_token']
   end
 
 end
