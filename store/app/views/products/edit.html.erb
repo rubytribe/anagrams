@@ -7,23 +7,20 @@
   <%= form_for(@product, html: { multipart: true }) do |prod| %></br>
        <%= prod.label :name, class: :label_style %></br>
        <%= prod.text_field :name, class: :text_field_style2 %></br>
+
   <p>  <%= prod.label :description, class: :label_style %> </p>
   <p>  <%= prod.text_area :description, size: "50x7"%> </p>
-       <%= prod.label :image_url,"Upload image", class: :label_style %></br>
-       <%= prod.file_field :image_url, accept: 'image/jpeg,image/gif,image/png', class: :text_field_style2 %></br>
+
+       <%= prod.label :image_url,"Upload image", class: :label_style %></br></br>
+       <%= prod.file_field :image_url, accept: 'image/jpeg,image/gif,image/png', class: :myButton %></br></br>
+
        <%= prod.label :price, class: :label_style %></br>
        <%= prod.number_field :price, step: 0.01, class: :text_field_style2 %></br>
        <div style="position: relative; top: 5px; padding-top: 3px">
          <%= prod.submit "Update product", class: 'button button_grey' %>
        </div>
   <% end %>
-  <script type="text/javascript">
-    $('product_image_url').bind('change', function() {
-        var size_in_megabytes = this.files[0].size/1024/1024;
-        if (size_in_megabytes > 5) {
-          alert('Maximum file size is 5MB. Please choose a smaller file.');
-        }
-    });
+
 
   <div class="myButton button_position"><%= link_to "Back", @product %></div>
 </div>
