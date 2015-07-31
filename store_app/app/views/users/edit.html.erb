@@ -1,5 +1,5 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% provide(:title, 'Edit user') %>
+<h1>Update profile</h1>
 <div class="form">
   <%= form_for(@user, html: {multipart: true }) do |f| %>
   <% if @user.errors.any? %>
@@ -35,7 +35,7 @@
       <%= f.file_field :picture %>
     </span>
     <div class="actions">
-      <%= f.submit "Create Account", class: "styled-button-8" %>
+      <%= f.submit "Update", class: "styled-button-8" %>
     </div>
   <% end %>
 </div>
