@@ -1,8 +1,11 @@
 <% provide(:title, "Create new user") %>
 <div class="align_center">
+  <span style="color: red">
+    <%= render 'shared/user_error_messages' %>
+  </span>
 
   <%= form_for(@user) do |u| %></br>
-  
+
     <%= u.label :name, class: :label_style %></br>
     <%= u.text_field :name, class: :text_field_style2%></br>
 

@@ -12,6 +12,9 @@ gem 'carrierwave'
 
 gem 'bootstrap-sass'
 
+
+gem 'faker'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

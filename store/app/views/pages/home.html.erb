@@ -1,7 +1,11 @@
 <% provide(:title, "The Table Store & Others")%>
 <div style="background-color: #B6F2DC; border-radius: 5px">
 <h1 style="text-align: center">Welcome to Store! You can find almost everything you want here</h1>
-<div class="myButton" style="float: right, padding-right: 10px"><%= link_to "Start browsing!" , products_path %></div>
+<div style="text-align:center">
+  <div class="myButton" style="float: right, padding-right: 10px; width:50%; text-align:center">
+    <%= link_to "Start browsing!" , products_path %>
+  </div>
+</div>
 <table class="image_size_table"><tr><th colspan="3">TABLES TABLES TABLES!</th></tr>
   <tr style="width: 100%">
     <td><%= image_tag('table2') %></td>

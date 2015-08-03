@@ -1,1 +1,23 @@
 <% provide(:title, "Edit account") %>
+<div class="align_center">
+  <span style="color: red">
+    <%= render 'shared/user_error_messages' %>
+  </span>
+
+  <%= form_for(@user) do |u| %></br>
+
+    <%= u.label :name, class: :label_style %></br>
+    <%= u.text_field :name, class: :text_field_style2%></br>
+
+    <%= u.label :email, class: :label_style %></br>
+    <%= u.email_field :email, class: :text_field_style2 %></br>
+
+    <%= u.label :password, class: :label_style %></br>
+    <%= u.password_field :password, class: :text_field_style2 %></br>
+
+    <%= u.label :password_confirmation, class: :label_style %></br>
+    <%= u.password_field :password_confirmation, class: :text_field_style2 %></br>
+
+    <%= u.submit "Update profile", class: 'button button_grey' %>
+  <% end %>
+</div>

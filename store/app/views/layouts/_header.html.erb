@@ -2,13 +2,14 @@
   <h1><%= yield(:title) %></h1>
   <ul>
     <% if logged_in? %>
-      <li class="myButton" style="color:black">Account
+      <li class="myButton" style="color:black; margin-right:10px">Account
         <ul>
+          <li class="myButton"> <%= link_to "Edit", edit_user_path(current_user) %></li>
           <li class="myButton"> <%= link_to "Profile", current_user %></li>
           <li class="myButton"> <%= link_to "Sign out", logout_path, method: "delete" %></li>
         </ul>
       </li>
-      <li class="myButton" style="margin-left:15px"> <%= link_to "Users", '#' %></li>
+      <li class="myButton" style="margin-left:15px"> <%= link_to "Users", users_path %></li>
     <% else %>
       <li class="myButton">  <%= link_to "Sign Up", signup_path %> </li>
       <li class="myButton" style="margin-left:15px">  <%= link_to "Log In",login_path %>  </li>
