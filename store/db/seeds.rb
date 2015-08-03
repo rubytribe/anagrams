@@ -1,4 +1,3 @@
-=begin
 User.create!(name:  "Raul",
              email: "raul@raul.com",
              password:              "password",
@@ -14,7 +13,7 @@ User.create!(name:  "Raul",
                password:              password,
                password_confirmation: password)
 end
-=end
+
 Product.create!(name:  "Table for all",
                 description: "The Master Table",
                 image_url:   File.new("app/assets/images/table9.jpg"),

@@ -1,3 +1,8 @@
 <% provide(:title, "#{@user.name}") %>
 <h1>Awaiting creation....</h1>
+<%= image_tag('noimg', size: "90x100") %>
 <img src="http://images-cdn.9gag.com/photo/azb7Lxb_700b.jpg" />
+
+<div><% if @user.admin? && current_user == @user %>
+          U admin maaan
+     <% end %></div>
