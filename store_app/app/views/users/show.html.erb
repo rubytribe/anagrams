@@ -1,7 +1,22 @@
+<% provide(:title, 'My profile') %>
 <div class="user-profile">
   <ul>
     <li>Name:  <%= @user.name %></p></li>
     <li>Email:  <%=  @user.email %></li>
     <li><%= image_tag @user.picture.url if @user.picture?  %></li>
   </ul>
+</div>
+
+<% if current_user?(@user) %>
+  <h2 class="prod_header">My Products </h2>
+  <div class="create_prod_button">
+    <%= link_to 'Create Product', new_product_path, :class => 'styled-button-9' %>
+  </div>
+<% else %>
+  <h2 class="prod_header">Products </h2>
+<% end %>
+
+
+<div class="feed">
+  <%= render 'shared/feed' %>
 </div>

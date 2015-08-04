@@ -7,6 +7,9 @@ class ProductsDeleteTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy" do
+    @user = users(:michael)
+    @product.user_id = @user.id
+    log_in_as @user
     assert_difference 'Product.count', -1 do
       delete product_path(@product)
     end

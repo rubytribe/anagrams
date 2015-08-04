@@ -3,11 +3,18 @@ require 'test_helper'
 class ProductTest < ActiveSupport::TestCase
 
   def setup
-    @product = Product.new(title: "Bike", description: "Red", image_url: "bike.jpg", price: 50)
+    @user = users(:michael)
+    @product = @user.products.build(title: "Bike", description: "Red",
+                           image_url: "bike.jpg", price: 50)
   end
 
   test "should be valid" do
     assert @product.valid?
+  end
+
+  test "user id should be present" do
+    @product.user_id = nil
+    assert_not @product.valid?
   end
 
   test "title should be present" do
@@ -41,7 +48,10 @@ class ProductTest < ActiveSupport::TestCase
 
     @product.price = 2
     assert @product.valid?
+  end
 
+  test "order should be most recent first" do
+    assert_equal products(:one), Product.first
   end
 
 end

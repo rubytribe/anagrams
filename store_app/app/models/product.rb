@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  belongs_to :user
+  default_scope -> {order(created_at: :desc) }
+  validates :user_id, presence: true
   validates :title, :description, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true

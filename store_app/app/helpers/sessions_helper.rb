@@ -2,6 +2,11 @@ module SessionsHelper
 
   # Logs in the given user
   def log_in(user)
+
+    if user.admin?
+      flash[:succes] = "Logged in as admin"
+    end
+
     session[:user_id] = user.id
   end
 

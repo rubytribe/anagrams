@@ -7,7 +7,7 @@
 
 <div>
 <ul class="users">
-  <%= render @users %>
+  <%= render @users.order('updated_at DESC') %>
 </ul>
 </div>
 

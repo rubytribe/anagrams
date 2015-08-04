@@ -7,6 +7,8 @@ class ProductsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "unsuccessful edit" do
+    @user = users(:michael)
+    log_in_as @user
     get edit_product_path(@product)
     assert_template 'products/edit'
     patch product_path(@product), product: { title: "",
@@ -18,6 +20,8 @@ class ProductsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit" do
+    @user = users(:michael)
+    log_in_as @user
     get edit_product_path(@product)
     assert_template 'products/edit'
     title = "title"
