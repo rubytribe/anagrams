@@ -2,7 +2,7 @@
 <%= will_paginate @users, class: :digg_pagination %>
 <% @users.each do |user| %>
   <div class="show_index">
-    <h2> <%= user.name %> </h2>
+    <h2 style="float: left; width: 20%"> <%= user.name %> </h2>
     <ul><li class="myButton"><%= link_to "Show", user %></li>
         <% if current_user.admin? && !current_user?(user) %>
           <li class="myButton"><%= link_to "Delete", user, method: :delete,

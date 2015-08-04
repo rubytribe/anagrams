@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150803085755) do
     t.integer  "user_id"
   end
 
+  add_index "products", ["user_id", "created_at"], name: "index_products_on_user_id_and_created_at", using: :btree
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

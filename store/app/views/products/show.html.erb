@@ -5,10 +5,8 @@
 <p id="price"><%= number_to_currency(@product.price) %></p>
 <ul>
   <li class="myButton", style="float: left"><%= link_to "Back", products_path %></li>
-  <% if current_user %>
-  <% if current_user.admin? || current_user.products.include?(@product)  %>
+  <% if logged_in? && (current_user.admin? || current_user.products.include?(@product))  %>
     <li class="myButton" style="margin-left: 230px"><%= link_to "Edit", edit_product_path(@product) %></li>
     <li class="myButton"><%= link_to "Delete", @product, method: :delete, data: {confirm: 'Are you sure?' } %></li>
-  <% end %>
   <% end %>
 </ul>

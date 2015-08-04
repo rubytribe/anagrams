@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :index]
+  before_action :logged_in_user, only: [:edit, :update, :index, :myproducts]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def show
     if User.exists?(id: params[:id])
       @user = User.find(params[:id])
+      @products = @user.products.paginate(page: params[:page])
     else
       flash[:notice] = "The user with the ID #{params[:id]} doesn't exist"
       redirect_to root_url
@@ -61,6 +62,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def myproducts
+      @user = current_user
+      @products = @user.products.paginate(page: params[:page])
+  end
+
+
   private
 
 
@@ -74,6 +81,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  
+
 
 end

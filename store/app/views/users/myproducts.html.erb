@@ -1,5 +1,4 @@
-<div>
-<% provide(:title,"Product list") %>
+<% provide(:title, "My products") %>
 <%= will_paginate @products, class: :digg_pagination %>
 <% (@products.order('updated_at ASC')).each do |product| %>
   <div class="show_index">
@@ -7,7 +6,7 @@
     <h2> <%= product.name %> </h2>
     <div class="description"><%= product.description %> </div>
     <span class="price"><%= number_to_currency(product.price) %> </span>
-    <ul><li class="myButton"><%= link_to "Show", product_path(product) %></li>
+    <ul><li class="myButton"><%= link_to "Show", product %></li>
       <% if logged_in? && (current_user.admin? || current_user.products.include?(product))  %>
         <li class="myButton"><%= link_to "Edit", edit_product_path(product) %></li>
         <li class="myButton"><%= link_to "Delete", product, method: :delete,
@@ -18,4 +17,3 @@
 <% end %>
 <span class="myButton" style="padding: 20px 10px 20px 10px;  margin: 20px 0 20px 10px"><%= link_to "+Add a new product" , products_new_path %></span>
 <%= will_paginate @products, class: :digg_pagination %>
-</div>

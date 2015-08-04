@@ -26,6 +26,7 @@ header {
     margin-left: 10px;
     margin-top: 10px;
     text-align: left;
+  
   }
 
   ul {
@@ -43,20 +44,23 @@ header {
 
   li ul {
       display: none;
-      z-index: 2;
   }
 
   ul li a {
       display: block;
       text-decoration: none;
-
+      z-index: 2;
   }
 
-  li:hover ul {
-      font-size: 5px;
+  li:hover ul { a { width: 100%; text-align: center; }
+    width: auto;
+      font-size: 100px;
       display: block;
       position: absolute;
-
+      z-index: 2;
+    li { display: block;
+      width: 76.5%;
+    }
   }
 }
 

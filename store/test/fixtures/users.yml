@@ -8,5 +8,5 @@ raul:
 
 george:
   name: George
-  email: geORGE@raul.com
+  email: george@raul.com
   password_digest: <%= User.digest('password') %>

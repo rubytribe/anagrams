@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   def destroy
     Product.find(params[:id]).destroy
     flash[:success] = "Product successfully deleted"
-    redirect_to products_url
+    redirect_to request.referrer || products_url
   end
 
   private
