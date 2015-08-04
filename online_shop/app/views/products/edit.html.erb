@@ -1,12 +1,19 @@
 <div class="divaliniat">
+<% if @product.errors.any? %>
+<ul>
+  <% @product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
 <%= form_for(@product) do |f| %>
   <%= f.label :name, class: "textcss" %><br>
   <%= f.text_field :name, class: "dap_text_box" %><br><br>
   <%= f.label :description, class: "textcss" %><br>
   <%= f.text_field :description, class: "dap_text_box" %><br><br>
   <%= f.label :price, class: "textcss" %><br>
-  <%= f.text_field :price, class: "dap_text_box" %><br><br>
+  <%= f.number_field :price, step: '0.1', class: "dap_text_box" %><br><br>
   <%= f.submit "Save changes", class: "btn" %><br><br>
-  <a href='/products/show'<button type="button" class="btn"><< Back</button></a>
+  <a href='/products'<button type="button" class="btn"><< Back</button></a>
 <% end %>
 </div>

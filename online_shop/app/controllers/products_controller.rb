@@ -1,16 +1,22 @@
 class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to '/products/show'
+    if @product.save
+      redirect_to '/products'
+    else
+      render 'new'
+    end
   end
 
   def new
     @product = Product.new
   end
 
-  def show
+  def index
     @products = Product.all
+  end
+  def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -20,12 +26,16 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update(product_params)
-    redirect_to '/products/show'
+    if @product.update_attributes(product_params)
+      redirect_to '/products'
+    else
+      render 'new'
+    end
   end
 
   def destroy
     Product.find(params[:id]).destroy
-    redirect_to '/products/show'
+    redirect_to '/products'
   end
 
   private

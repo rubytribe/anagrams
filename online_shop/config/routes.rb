@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  root 'sessions#new'
   get 'login' => 'sessions#new'
   post 'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+
   get 'signup'  => 'users#new'
-  root 'sessions#new'
-  get 'products/new'
+
+  get 'products/new' => 'products#new'
+  get 'products/show' => 'products#show'
+  get 'products/index' => 'products'
+
   resources:products
   resources:users
 
