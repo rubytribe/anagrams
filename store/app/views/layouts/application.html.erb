@@ -9,11 +9,13 @@
   <body>
     <div class="wrapper">
       <%= render 'layouts/header' %>
+
       <div class="container">
-        <%= yield %>
         <% flash.each do |message_type, message| %>
           <div class="flash_<%= message_type %>"><%= message %></div>
         <% end %>
+        <%= yield %>
+
       </div>
       <%= render 'layouts/footer' %>
     </div>

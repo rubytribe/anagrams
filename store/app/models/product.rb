@@ -1,10 +1,12 @@
 class Product < ActiveRecord::Base
-  #belongs_to :user
+  belongs_to :user
+  validates :user_id, presence: true
 
   mount_uploader :image_url, PictureUploader
 
   validates :name, :description, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+  validates :price, numericality: { less_than_or_equal_to: 999999.99, message:"too high. Nobody will buy it."}
   validates :name, uniqueness: true, length: {minimum: 5,
                                               message: "too short. Must be at least 5 characters long." }
   validates :image_url,presence: true

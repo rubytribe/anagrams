@@ -43,6 +43,7 @@ header {
 
   li ul {
       display: none;
+      z-index: 2;
   }
 
   ul li a {
@@ -51,12 +52,10 @@ header {
 
   }
 
-  li:hover ul {   margin-top: 5px;
-
-      margin-bottom: 2px;
+  li:hover ul {
+      font-size: 5px;
       display: block;
       position: absolute;
-      width: 80%;
 
   }
 }
@@ -76,15 +75,18 @@ footer {
 	background:linear-gradient(to bottom, #6c7c7c 5%, #333635 100%);
 
   position:absolute;
+
   bottom: 0px;
+  /*
   left:0;
   right: 0;
-  height: 119px;
-  width:100%;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
   padding-right: 0;
+  */
+  height: 119px;
+  width:100%;
   border-top: 2px solid grey;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

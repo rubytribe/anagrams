@@ -1,32 +1,43 @@
 require 'test_helper'
 #@product.image_url = File.new("test/fixtures/500.jpg")
 class HandleProductsTest < ActionDispatch::IntegrationTest
+
   def setup
+    @user = users(:raul)
     @product=products(:tablexxl)
   end
-  test "create valid product" do
+
+  test "create valid product without and with log in" do
     get new_product_path
-    assert_difference 'Product.count', 1 do
-      post_via_redirect products_path, product: { name:  "Example Product",
-                                            description: "description should be long",
-                                            image_url:   fixture_file_upload('test/fixtures/500.jpg', 'image/jpg'),
-                                            price: 100  }
-    end
-  assert_template 'products/show'
+    log_in_as @user
+    assert_redirected_to new_product_path
+    assert is_logged_in?
+  # assert_difference 'Product.count', 1 do
+  #   post_via_redirect  products_path, product: { name:      "PTsdsdTTOEEF",
+  #                                                description: "lalalalalalaalallala",
+  #                                                image_url:   File.new("test/fixtures/500.jpg"),
+  #                                                price:       1000.00,
+  #                                                user_id: 1  }
+  # end
+  # assert_template 'products/show'
   end
 
-  test "create invalid product" do
+  test "create invalid product without and with log in" do
     get new_product_path
-    assert_difference 'Product.count', 0 do
-      post_via_redirect products_path, product: { name:  "   ",
-                                            description: " ",
-                                            image_url:             "invalid_image_u.rljpg",
-                                            price: "string"  }
+    log_in_as @user
+    assert_redirected_to new_product_path
+    assert_no_difference 'Product.count' do
+      post products_path, product: { name:      "EF",
+                                     description: "",
+                                     image_url:   'table.jdspg',   #File.new("test/fixtures/500.jpg")
+                                     price:       'asd',
+                                     user_id:     4  }
     end
     assert_template 'products/new'
   end
 
   test "succesful edit product" do
+    log_in_as(@user)
     get edit_product_path(@product)
     assert_response :success
     name="new name"
@@ -47,6 +58,7 @@ class HandleProductsTest < ActionDispatch::IntegrationTest
   end
 
   test "unsuccesful edit product" do
+    log_in_as(@user)
     get edit_product_path(@product)
     assert_template "products/edit"
     name="  "

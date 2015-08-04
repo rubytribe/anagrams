@@ -63,13 +63,7 @@ class UsersController < ApplicationController
 
   private
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
+
 
   def correct_user
     @user = User.find(params[:id])
@@ -80,8 +74,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def admin_user
-    redirect_to root_path unless logged_in? && current_user.admin?
-  end
+  
 
 end

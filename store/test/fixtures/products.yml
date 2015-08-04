@@ -5,9 +5,18 @@ tablexxl:
   description: This table is for two
   price: 9.99
   image_url: valid_image_url.jpg
+  user: raul
+
+tablexxy:
+  name: table for more
+  description: This table is for two all people
+  price: 100.00
+  image_url: valid_image_url2.jpg
+  user: raul
 
 one:
   name: MyString
   description: MyText
   price: 9.99
   image_url: MyString
+  user: george

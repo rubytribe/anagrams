@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :products, dependent: :destroy
   attr_accessor :remember_token
-  #has_many :products
   before_save { self.email = email.downcase }
 
   validates :name,  presence: true, length: { maximum: 50 }

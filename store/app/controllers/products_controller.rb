@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :logged_in_user, only: [ :create, :destroy, :edit, :new]
+  before_action :correct_user, only: [:destroy, :edit]
+  #before_action :admin_user, only: [:destroy, :edit]
+
   def new
-    @product = Product.new
+    #@product = Product.new
+    @product = current_user.products.build if logged_in?
   end
 
   def show
@@ -17,7 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.build(product_params)
     if @product.save
       flash[:success] = "Product successfully created"
       redirect_to @product
@@ -57,4 +62,13 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :image_url, :price)
   end
+
+  def correct_user
+     @product = current_user.products.find_by(id: params[:id])
+     if !current_user.admin? && @product.nil?
+       redirect_to products_url
+       flash[:danger] = "You are not allowed to do that."
+     end
+   end
+
 end

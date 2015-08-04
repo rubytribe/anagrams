@@ -3,4 +3,6 @@ module ApplicationHelper
     @time = Time.now
     @time = @time.strftime("%I:%M%p %d/%m/%Y")
   end
+
+
 end
