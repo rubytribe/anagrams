@@ -12,7 +12,7 @@
   <%= f.label :description, class: "textcss" %><br>
   <%= f.text_field :description, class: "dap_text_box" %><br><br>
   <%= f.label :price, class: "textcss" %><br>
-  <%= f.number_field :price, step: '0.1', class: "dap_text_box" %><br><br>
+  <%= f.number_field :price, step: '0.01', class: "dap_text_box" %><br><br>
   <%= f.submit "Save changes", class: "btn" %><br><br>
   <a href='/products'<button type="button" class="btn"><< Back</button></a>
 <% end %>

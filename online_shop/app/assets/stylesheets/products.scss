@@ -7,6 +7,22 @@
   font-size:16px;
 }
 
+#footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #6C7B8B;
+  text-align: right;
+  height: 38px;
+}
+
+#footertext {
+  color: #ffffff;
+  font-size: 16px;
+}
+
 h3 {
   float: right;
 }

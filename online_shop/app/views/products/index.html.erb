@@ -4,6 +4,7 @@
 <th>Name</th>
 <th>Description</th>
 <th>Price</th>
+<th>Added by</th>
 <th colspan="2"></th>
 </thead>
 <tbody>
@@ -12,6 +13,7 @@
   <td><span class="textcss2"><%=  product.name%></span></td>
   <td><span class="textcss2"><%=  product.description %></span></td>
   <td><span class="textcss2"><%=  product.price %></span></td>
+  <td><span class="textcss2"><%= product.user.name %> <br><%= (product.created_at+ 3.hours).strftime("%d/%m/%Y at %H:%M") %></span></td>
   <td><%= link_to 'Edit', edit_product_path(product) %></td>
   <td><%= link_to 'Destroy', product, method: :delete %></td>
 </tr>
