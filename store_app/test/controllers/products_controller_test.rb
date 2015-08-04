@@ -38,4 +38,14 @@ class ProductsControllerTest < ActionController::TestCase
     end
     assert_redirected_to login_url
   end
+
+  test "should redirect destroy for wrong product" do
+    log_in_as(users(:michael))
+    product = products(:two)
+    assert_no_difference 'Product.count' do
+      delete :destroy, id: product
+    end
+    assert_redirected_to root_url
+  end
+
 end
