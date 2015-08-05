@@ -1,1 +1,18 @@
-<%= @product.name %>
+<div class = "divaliniat">
+<p>
+  <strong class = "textcss">Title:</strong>
+  <span class = "textcss"><%= @product.name %></span>
+</p>
+
+<p>
+  <strong class = "textcss">Description:</strong>
+  <span class = "textcss"><%= strip_tags(@product.description)%></span>
+</p>
+
+<p>
+  <strong class = "textcss">Price:</strong>
+  <span class = "textcss"><%= @product.price %></span>
+</p>
+<br><br>
+<a href='/products'<button type="button" class="btn"><< Back</button></a>
+</div>

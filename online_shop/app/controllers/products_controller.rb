@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.build(product_params)
     if @product.save
+      flash[:success] = "Product created!"
       redirect_to '/products'
     else
       render 'new'
@@ -15,6 +16,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
+
   def show
     @product = Product.find(params[:id])
   end
@@ -27,6 +29,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.update(product_params)
     if @product.update_attributes(product_params)
+      flash[:updated] = "Product updated!"
       redirect_to '/products'
     else
       render 'new'

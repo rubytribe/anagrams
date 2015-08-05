@@ -16,11 +16,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id = "container">
 <%= yield %>
 <div id = "footer">
 <p id="footertext">© Rubytribe</p>
-<script >
+<!--<script >
 function startTime() {
     var today=new Date();
     var h=today.getHours();
@@ -41,8 +41,27 @@ function checkTime(i) {
 </script>
 <body onload="startTime()" >
 <p id="footerclock"></p>
+-->
+<script type="text/javascript">
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
+function display_ct() {
+var strcount
+var x = new Date()
+document.getElementById('footerclock').innerHTML = x;
+tt=display_c();
+}
+</script>
+</head>
 
+<body onload=display_ct();>
+<span id='footerclock' ></span>
+
+</div>
+<div id = "body"></div>
 </div>
 </body>
 </html>
