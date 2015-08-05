@@ -18,6 +18,9 @@ class UsersController < ApplicationController
         @product = @user.products.build
         @feed_items = @user.feed.paginate(page: params[:page])
       end
+    else
+      @product = @user.products.build
+      @feed_items = @user.feed.paginate(page: params[:page])
     end
   end
 
