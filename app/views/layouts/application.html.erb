@@ -6,7 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='<%= controller.controller_name %>'>
+  <div id="container">
 
   <p class="navbar-text pull-right">
 <% if user_signed_in? %>
@@ -25,6 +26,8 @@
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 <%= yield %>
-
+   <div id="body"></div>
+   <div id="footer"></div>
+</div>
 </body>
 </html>
