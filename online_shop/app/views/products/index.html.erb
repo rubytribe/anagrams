@@ -10,12 +10,12 @@
 <tbody>
 <% @products.each do |product| %>
 <tr>
-  <td><span class="textcss2"><%=  product.name%></span></td>
-  <td><span class="textcss2"><%=  product.description %></span></td>
-  <td><span class="textcss2"><%=  product.price %></span></td>
-  <td><span class="textcss2"><%= product.user.name %> <br><%= (product.created_at+ 3.hours).strftime("%d/%m/%Y at %H:%M") %></span></td>
-  <td><%= link_to 'Edit', edit_product_path(product) %></td>
-  <td><%= link_to 'Destroy', product, method: :delete %></td>
+  <td style = "width: 20% word-wrap: break-word"><span class="textcss2"><%=  product.name%></span></td>
+  <td width = "25%"><span class="textcss2"><%=  product.description %></span></td>
+  <td width = "14%"><span class="textcss2"><%=  product.price %></span></td>
+  <td width = "23%"><span class="textcss2"><%= product.user.name %> <br><%= (product.created_at+ 3.hours).strftime("%d/%m/%Y at %H:%M") %></span></td>
+  <td width = "9%"><%= link_to 'Edit', edit_product_path(product) %></td>
+  <td width = "9%"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'}%></td>
 </tr>
 <% end %>
 </tbody>

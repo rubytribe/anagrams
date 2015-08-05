@@ -2,7 +2,8 @@ require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   def setup
-    @product = Product.new(name:"Example name", description: "Example description", price: 1000 )
+    @user = users(:cristi)
+    @product = products(:one)
   end
 
   test "should be valid" do
@@ -24,11 +25,13 @@ class ProductTest < ActiveSupport::TestCase
     assert_not @product.valid?
   end
 
-  test "create product" do
-    get new_product_path
-    assert_difference 'Product.count', 1 do
-      post_via_redirect products_path, product: { name:"Example name", description: "Example description", price: 1000 }
-    end
-    assert_template 'products'
+  test "description should be at least 140 characters" do
+    @product.description = "a" * 141
+    assert_not @product.valid?
+  end
+
+  test "name should be at least 50 characters" do
+    @product.name = "a" * 51
+    assert_not @product.valid?
   end
 end

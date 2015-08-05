@@ -18,9 +18,20 @@
   height: 38px;
 }
 
-#footertext {
+#footertext{
+  color:#ffffff;
+  font-size: 18px;
+  text-align: right;
+  position: relative;
+  bottom: 2px;
+}
+
+#footerclock {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  bottom: 37px;
 }
 
 h3 {
@@ -70,7 +81,7 @@ h3 {
 }
 
 .divsignup{
-  margin-left: 510px;
+  margin-left: 580px;
   margin-top: 50px;
 }
 
