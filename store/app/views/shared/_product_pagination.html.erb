@@ -1,0 +1,22 @@
+<div style="margin-top: 10px">
+<%= will_paginate @products, class: :digg_pagination %>
+<% (@products.order('updated_at ASC')).each do |product| %>
+  <div class="show_index">
+    <%= image_tag(product.image_url, alt: product.name) %>
+    <h2> <%= product.name %> </h2>
+    <div class="description"><%= product.description %> </div>
+    <span class="price"><%= number_to_currency(product.price) %> </span>
+    <ul><li class="myButton"><%= link_to "Show", product %></li>
+      <% if logged_in? && (current_user.admin? || current_user.products.include?(product))  %>
+        <li class="myButton"><%= link_to "Edit", edit_product_path(product) %></li>
+        <li class="myButton"><%= link_to "Delete", product, method: :delete,
+                                                    data: {confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+    <% if (yield(:title) == "Product list") %>
+    <p>Added by: <%= link_to product.user.name, product.user %></p>
+    <% end %>
+  </div>
+<% end %>
+<%= will_paginate @products, class: :digg_pagination %>
+</div>

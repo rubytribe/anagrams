@@ -2,34 +2,14 @@
 <h1>Awaiting creation....</h1>
 <img src="http://images-cdn.9gag.com/photo/azb7Lxb_700b.jpg" style="float:left" />
 <div style="float: left; width:50%">
-  <%= will_paginate @products, class: :digg_pagination %>
-  <% (@products.order('updated_at ASC')).each do |product| %>
-    <div class="show_index">
-      <%= image_tag(product.image_url, alt: product.name) %>
-      <h2> <%= product.name %> </h2>
-      <div class="description"><%= product.description %> </div>
-      <span class="price"><%= number_to_currency(product.price) %> </span>
-      <ul><li class="myButton"><%= link_to "Show", product %></li>
-        <% if logged_in? && (current_user.admin? || current_user.products.include?(product))  %>
-          <li class="myButton"><%= link_to "Edit", edit_product_path(product) %></li>
-          <li class="myButton"><%= link_to "Delete", product, method: :delete,
-                                                      data: {confirm: 'Are you sure?' } %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= will_paginate @products, class: :digg_pagination %>
-
+  <%= render 'shared/product_pagination' %>
 </div>
 <div style="clear: both">
-<% if @user.admin? && current_user == @user %>
-      U admin maaan
-<% elsif current_user == @user  %>
-      <span class="myButton" style="padding: 20px 10px 20px 10px;  margin: 20px 0 20px 10px; clear:none; width: 15%; float: left">
-        <%= link_to "+Add a new product" , products_new_path %>
-      </span>
-      This is your profile page
-
-            <div class="myButton" style="clear: both; display:block; width: 10%; margin: 20px 0 20px 10px"><%= link_to "My products", myproducts_path %></div>
-<% end %>
+  <% if @user.admin? && current_user == @user %>
+      <%= render 'shared/users_show_buttons' %>
+        U admin maaan
+  <% elsif current_user == @user  %>
+      <%= render 'shared/users_show_buttons' %>
+        This is your profile page
+  <% end %>
 </div>

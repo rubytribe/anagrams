@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     #@users = User.all
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def show
     if User.exists?(id: params[:id])
       @user = User.find(params[:id])
-      @products = @user.products.paginate(page: params[:page])
+      @products = @user.products.paginate(page: params[:page], :per_page => 10)
     else
       flash[:notice] = "The user with the ID #{params[:id]} doesn't exist"
       redirect_to root_url
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
   def myproducts
       @user = current_user
-      @products = @user.products.paginate(page: params[:page])
+      @products = @user.products.paginate(page: params[:page], :per_page => 10)
   end
 
 

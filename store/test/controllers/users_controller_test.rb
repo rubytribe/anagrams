@@ -66,4 +66,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_not @other_user.admin?
   end
 
+  test "should delete products associated to user" do
+    log_in_as @user
+    assert_difference 'Product.count', -2 do
+      @user.destroy
+    end
+  end
+
 end

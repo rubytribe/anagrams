@@ -1,21 +1,11 @@
 <div>
 <% provide(:title,"Product list") %>
-<%= will_paginate @products, class: :digg_pagination %>
-<% (@products.order('updated_at ASC')).each do |product| %>
-  <div class="show_index">
-    <%= image_tag(product.image_url, alt: product.name) %>
-    <h2> <%= product.name %> </h2>
-    <div class="description"><%= product.description %> </div>
-    <span class="price"><%= number_to_currency(product.price) %> </span>
-    <ul><li class="myButton"><%= link_to "Show", product_path(product) %></li>
-      <% if logged_in? && (current_user.admin? || current_user.products.include?(product))  %>
-        <li class="myButton"><%= link_to "Edit", edit_product_path(product) %></li>
-        <li class="myButton"><%= link_to "Delete", product, method: :delete,
-                                                    data: {confirm: 'Are you sure?' } %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-<span class="myButton" style="padding: 20px 10px 20px 10px;  margin: 20px 0 20px 10px"><%= link_to "+Add a new product" , products_new_path %></span>
-<%= will_paginate @products, class: :digg_pagination %>
+<p>There are currently <%= pluralize(Product.count, "product") %> in the store. May you find what you are looking for.</p>
+<span class="myButton" style="padding: 20px 10px 20px 10px;  margin: 20px 0 10px 20px display:block; clear:both">
+  <%= link_to "+Add a new product" , products_new_path %>
+</span>
+<%= render 'shared/product_pagination' %>
+<span class="myButton" style="padding: 20px 10px 20px 10px;  margin: 20px 0 20px 10px">
+  <%= link_to "+Add a new product" , products_new_path %>
+</span>
 </div>

@@ -4,6 +4,7 @@
     <% if logged_in? %>
       <li class="myButton" style="color:black; margin-right:10px;">Account
         <ul style="margin-top:7px" >
+          <li class="myButton"> <%= link_to "My stuff", myproducts_path %></li>
           <li class="myButton"> <%= link_to "Edit", edit_user_path(current_user) %></li>
           <li class="myButton"> <%= link_to "Profile", current_user %></li>
           <li class="myButton"> <%= link_to "Sign out", logout_path, method: "delete" %></li>
