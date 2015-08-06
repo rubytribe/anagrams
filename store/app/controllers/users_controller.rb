@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], :per_page => 10)
   end
 
-
   def new
     @user = User.new
   end
@@ -26,22 +25,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    if User.exists?(id: params[:id])
-      @user = User.find(params[:id])
-      @products = @user.products.paginate(page: params[:page], :per_page => 10)
-    else
-      flash[:notice] = "The user with the ID #{params[:id]} doesn't exist"
-      redirect_to root_url
-    end
+    @user = User.find(params[:id])
+    @products = @user.products.paginate(page: params[:page], :per_page => 10)
   end
 
   def edit
-    if User.exists?(id: params[:id])
-      @user = User.find(params[:id])
-    else
-      flash[:notice] = "The user with the ID #{params[:id]} doesn't exist"
-      redirect_to root_url
-    end
+    @user = User.find(params[:id])
   end
 
   def update

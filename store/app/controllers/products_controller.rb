@@ -9,12 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    if Product.exists?(id: params[:id])
-      @product = Product.find(params[:id])
-    else
-      flash[:notice] = "The product with the ID #{params[:id]} doesn't exist"
-      redirect_to products_url
-    end
+    @product = Product.find(params[:id])
   end
 
   def index
@@ -33,12 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if Product.exists?(id: params[:id])
-      @product = Product.find(params[:id])
-    else
-      flash[:notice] = "The product with the ID #{params[:id]} doesn't exist"
-      redirect_to products_url
-    end
+    @product = Product.find(params[:id])
   end
 
   def update
